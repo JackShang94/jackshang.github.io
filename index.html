@@ -139,6 +139,91 @@
 <div class="card">
     
     <div class="card-image">
+        <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="image is-7by1">
+            <img class="thumbnail" src="/gallery/docker.png" alt="Docker概念梳理">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-06T16:00:00.000Z">2020-05-07</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 minutes read (About 1557 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/">Docker概念梳理</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h3 id="Docker好处"><a href="#Docker好处" class="headerlink" title="Docker好处:"></a>Docker好处:</h3><ul>
+<li><strong>一致的运行环境</strong> Docker 的镜像提供了==除内核外==完整的运行时环境，确保了应用运行环境一致性.</li>
+<li><strong>更快速的启动时间</strong> 可以做到秒级、甚至毫秒级的启动时间。</li>
+<li><strong>隔离性</strong> 避免公用的服务器，资源会容易受到其他用户的影响.</li>
+<li><strong>弹性伸缩，快速扩展</strong> 善于处理集中爆发的服务器使用压力.</li>
+<li><strong>迁移方便</strong> 可以很轻易的将在一个平台上运行的应用，迁移到另一个平台上，而不用担心运行环境的变化导致应用无法正常运行的情况。</li>
+<li><strong>持续交付和部署</strong> 使用 Docker 可以通过定制应用镜像来实现持续集成、持续交付、部署。</li>
+</ul>
+<h3 id="Docker基本概念"><a href="#Docker基本概念" class="headerlink" title="Docker基本概念"></a>Docker基本概念</h3><ul>
+<li><a href="#Repository">仓库</a>（Repository）</li>
+<li><a href="#Image">镜像</a>（Image）</li>
+<li><a href="#Container">容器</a>（Container）</li>
+<li><a href="#Dockerfile">Dockerfile</a>（Dockerfile）</li>
+<li><a href="#DockerCompose">Docker Compose</a>（Docker Compose）</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/05/07/Yeowu9.jpg" alt></p>
+<h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a><span id="Repository">仓库</span></h4><p>集中存放镜像文件的地方。比如：DockerHub</p>
+<h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a><span id="Image">镜像</span></h4><p>一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。 镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。</p>
+<p>有基础镜像，仅仅包含操作系统，比如centos镜像；有中间件镜像，比如redis等数据库镜像；最后是应用镜像，就是指具体的应用服务了，应用镜像可以非常丰富，随时可以发布，这三者之间依次叠加。</p>
+<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a><span id="Container">容器</span></h4><p>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。</p>
+<p>容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。</p>
+<p>容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新 run ，数据却不会丢失。</p>
+<p>打个比方，你首先下载了一个Ubuntu的镜像，然后又安装mysql和Django应用及其依赖，来完成对它Ubutun镜像的修改，一个个人觉得非常完美应用镜像生成了！就把这个镜像分享给大家使用，大家通过这个镜像就生成一个容器。容器启动之后就会运行Django服务了。<br><img src="https://s1.ax1x.com/2020/05/07/YeTFv4.png" alt>](<a href="https://imgchr.com/i/YeTFv4" target="_blank" rel="noopener">https://imgchr.com/i/YeTFv4</a></p>
+<p>容器就是一个个独立的封闭的集装箱，但是也需要对外提供服务的，所以Docker允许公开容器的特定端口，在启动Docker的时候，我们就可以将容器的特定端口映射到宿主机上面的任意一个端口，所以，如果几个服务都需要80端口，那么容器的对外端口是80，但是映射到宿主机上面就是任意端口，就不会产生冲突，所以就不需要通过代理来解决冲突。容器对外端口与宿主机的端口映射可以通过下面的命令来完成。</p>
+<figure class="highlight applescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -d -p <span class="hljs-number">8081</span>:<span class="hljs-number">80</span> <span class="hljs-comment">--name 容器名 镜像名</span><br><br> -d 守护容器，就是后台运行，退出命令窗口容器也不会停止<br> -<span class="hljs-keyword">it</span> 交互式容器 退出命令窗口容器就停止运行了<br> -p 宿主机端口和容器端口映射<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://s1.ax1x.com/2020/05/07/YeTM8O.png" alt></p>
+<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><span id="Dockerfile">Dockerfile</span></h4><p>一个文本文件，用来配置 image。</p>
+<figure class="highlight Docker hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Docker"><span class="hljs-comment"># Dockerfile</span><br><br><span class="hljs-keyword">FROM</span> ubuntu:<span class="hljs-number">16.04</span><br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update</span><br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y vim</span><br><br><span class="hljs-comment"># 告诉Docker默认启动命令</span><br><span class="hljs-keyword">CMD</span><span class="bash">[<span class="hljs-string">"sh"</span>]</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a><span id="DockerCompose">Docker Compose</span></h4><p>Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。</p>
+<p>docker-compose是编排容器的。例如，你有一个php镜像，一个mysql镜像，一个nginx镜像。如果没有docker-compose，那么每次启动的时候，你需要敲各个容器的启动参数，环境变量，容器命名，指定不同容器的链接参数等等一系列的操作，相当繁琐。而用了docker-composer之后，你就可以把这些命令一次性写在docker-composer.yml文件中，以后每次启动这一整个环境（含3个容器）的时候，你只要敲一个docker-composer up命令就ok了</p>
+<p>Compose 使用的三个步骤：</p>
+<ol>
+<li>使用 Dockerfile 定义应用程序的环境。</li>
+<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
+<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
+</ol>
+<figure class="highlight dts hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta"># yaml 配置实例</span><br><span class="hljs-symbol">version:</span> <span class="hljs-string">'3'</span><br><span class="hljs-symbol">services:</span><br><span class="hljs-symbol">  web:</span><br><span class="hljs-symbol">    build:</span> .<br><span class="hljs-symbol">    ports:</span><br>   - <span class="hljs-string">"5000:5000"</span><br><span class="hljs-symbol">    volumes:</span><br>   - .:/code<br>    - logvolume01:<span class="hljs-meta-keyword">/var/</span>log<br><span class="hljs-symbol">    links:</span><br>   - redis<br><span class="hljs-symbol">  redis:</span><br><span class="hljs-symbol">    image:</span> redis<br><span class="hljs-symbol">volumes:</span><br><span class="hljs-symbol">  logvolume01:</span> {}<br></code></pre></td></tr></tbody></table></figure></body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/2020/02/03/Workaround%20for%20oracle%20weblogic%20install%20error/" class="image is-7by1">
             <img class="thumbnail" src="/gallery/math.jpg" alt="Workaround for oracle weblogic install error —— Cyclic dependency detected among featureset libraries">
         </a>
@@ -438,7 +523,7 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            2
+                            3
                         </p>
                     </a>
                 </div>
@@ -462,7 +547,7 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            2
+                            3
                         </p>
                     </a>
                 </div>
@@ -569,7 +654,7 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle-Weblogic/" style="font-size: 10px;">Oracle Weblogic</a>
+        <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Weblogic/" style="font-size: 10px;">Weblogic</a>
     </div>
 </div>
     
@@ -581,6 +666,25 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker.png" alt="Docker概念梳理">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-06T16:00:00.000Z">2020-05-07</time></div>
+                    <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Docker概念梳理</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -632,6 +736,17 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2020/02/">
                 <span class="level-start">
                     <span class="level-item">February 2020</span>
@@ -667,6 +782,13 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Docker/">
+                        <span class="tag">Docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Hexo/">
                         <span class="tag">Hexo</span>
                         <span class="tag is-grey">1</span>
@@ -674,8 +796,8 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Oracle-Weblogic/">
-                        <span class="tag">Oracle Weblogic</span>
+                    <a class="tags has-addons" href="/tags/Weblogic/">
+                        <span class="tag">Weblogic</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -704,6 +826,25 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
         
         <article class="media">
             
+            <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker.png" alt="Docker概念梳理">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-06T16:00:00.000Z">2020-05-07</time></div>
+                    <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Docker概念梳理</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/03/Workaround%20for%20oracle%20weblogic%20install%20error/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/math.jpg" alt="Workaround for oracle weblogic install error —— Cyclic dependency detected among featureset libraries">
@@ -752,6 +893,17 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2020/02/">
                 <span class="level-start">
                     <span class="level-item">February 2020</span>
@@ -787,6 +939,13 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Docker/">
+                        <span class="tag">Docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Hexo/">
                         <span class="tag">Hexo</span>
                         <span class="tag is-grey">1</span>
@@ -794,8 +953,8 @@ We can find out that the libraries are referenced in <strong><em>wls_sharedLibra
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Oracle-Weblogic/">
-                        <span class="tag">Oracle Weblogic</span>
+                    <a class="tags has-addons" href="/tags/Weblogic/">
+                        <span class="tag">Weblogic</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

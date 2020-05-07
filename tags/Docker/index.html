@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Hexo + GitPages Blog Tutorial(教程) - Jack Shang&#39;s Blog</title>
+<title>Tag: Docker - Jack Shang&#39;s Blog</title>
 
 
 
@@ -81,8 +81,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.svg" alt="Hexo + GitPages Blog Tutorial(教程)" height="28" />
-                <img class="logo-img-dark" src="/images/logo.svg" alt="Hexo + GitPages Blog Tutorial(教程)" height="28" />
+                <img class="logo-img" src="/images/logo.svg" alt="Jack Shang&#39;s Blog" height="28" />
+                <img class="logo-img-dark" src="/images/logo.svg" alt="Jack Shang&#39;s Blog" height="28" />
             
             </a>
         </div>
@@ -121,10 +121,6 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -138,151 +134,91 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Docker</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/gallery/plant.jpg" alt="Hexo + GitPages Blog Tutorial(教程)">
-        </span>
+        <a href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/" class="image is-7by1">
+            <img class="thumbnail" src="/gallery/docker.png" alt="Docker概念梳理">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-19T14:00:22.000Z">2019-12-19</time>
+                <time class="level-item has-text-grey" datetime="2020-05-06T16:00:00.000Z">2020-05-07</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 885 words)
+                    10 minutes read (About 1557 words)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span> visits
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Hexo + GitPages Blog Tutorial(教程)
+                <a class="has-link-black-ter" href="/2020/05/07/Docker%E6%A6%82%E5%BF%B5%E6%A2%B3%E7%90%86/">Docker概念梳理</a>
             
         </h1>
         <div class="content">
-            <html><head></head><body><h2 id="Brief"><a href="#Brief" class="headerlink" title="Brief"></a>Brief</h2><p>This tutorial is for building free static blogs by using Hexo and Github Pages. We will start at environments set up, customise blog pages, add source project in version control and install plugins for futher features like comments.</p>
-<h3 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo"></a>What is Hexo</h3><p>Hexo is a fast, simple and powerful blog framework. You write posts in <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a> (or other markup languages) and <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> generates static files with a beautiful theme in seconds.</p>
-<h3 id="What-is-Github-Pages"><a href="#What-is-Github-Pages" class="headerlink" title="What is Github Pages"></a>What is Github Pages</h3><p><a href="https://en.wikipedia.org/wiki/GitHub#GitHub_Pages" target="_blank" rel="noopener">GitHub Pages</a> is a static web hosting service offered by GitHub since 2008 to GitHub users for hosting user blogs, project documentation, or even whole books created as a page.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>It only takes less than one hour to set up enviroments and get your first blog page deployed. If you encounter a problem, please refer <a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
-<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
-<li>Git</li>
-<li>Node.js</li>
+            <html><head></head><body><h3 id="Docker好处"><a href="#Docker好处" class="headerlink" title="Docker好处:"></a>Docker好处:</h3><ul>
+<li><strong>一致的运行环境</strong> Docker 的镜像提供了==除内核外==完整的运行时环境，确保了应用运行环境一致性.</li>
+<li><strong>更快速的启动时间</strong> 可以做到秒级、甚至毫秒级的启动时间。</li>
+<li><strong>隔离性</strong> 避免公用的服务器，资源会容易受到其他用户的影响.</li>
+<li><strong>弹性伸缩，快速扩展</strong> 善于处理集中爆发的服务器使用压力.</li>
+<li><strong>迁移方便</strong> 可以很轻易的将在一个平台上运行的应用，迁移到另一个平台上，而不用担心运行环境的变化导致应用无法正常运行的情况。</li>
+<li><strong>持续交付和部署</strong> 使用 Docker 可以通过定制应用镜像来实现持续集成、持续交付、部署。</li>
 </ul>
-<p>If your computer already has these, congratulations! You can skip to the <a href="#installHexo">install Hexo</a> step.</p>
-<h3 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h3><ul>
-<li>Windows: Download & install <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git</a>.</li>
-<li>Mac: Install it with <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a>, <a href="http://www.macports.org/" target="_blank" rel="noopener">MacPorts</a> or <a href="http://www.macports.org/" target="_blank" rel="noopener">installer</a>.</li>
-<li>Linux (Ubuntu, Debian):<figure class="highlight routeros hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install git-core<br></code></pre></td></tr></tbody></table></figure></li>
-<li>Linux (Fedora, Red Hat, CentOS):<figure class="highlight cmake hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo yum <span class="hljs-keyword">install</span> git-core<br></code></pre></td></tr></tbody></table></figure>
-
-</li>
+<h3 id="Docker基本概念"><a href="#Docker基本概念" class="headerlink" title="Docker基本概念"></a>Docker基本概念</h3><ul>
+<li><a href="#Repository">仓库</a>（Repository）</li>
+<li><a href="#Image">镜像</a>（Image）</li>
+<li><a href="#Container">容器</a>（Container）</li>
+<li><a href="#Dockerfile">Dockerfile</a>（Dockerfile）</li>
+<li><a href="#DockerCompose">Docker Compose</a>（Docker Compose）</li>
 </ul>
-<p>Run CMD check git was installed successfully: <code>git --version</code></p>
-<p><img src="https://s2.ax1x.com/2019/12/19/QquIcd.png" alt></p>
-<h3 id="Generate-SSH-Key-for-Github"><a href="#Generate-SSH-Key-for-Github" class="headerlink" title="Generate SSH Key for Github"></a>Generate SSH Key for Github</h3><p>Run git bash from Menu</p>
-<p><img src="https://s2.ax1x.com/2019/12/19/QLZN9J.png" alt></p>
-<p>Config your git global settings:</p>
-<figure class="highlight routeros hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"your GitHub username"</span><br>git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"your GitHub regist email"</span><br></code></pre></td></tr></tbody></table></figure>
-<p>Generate ssh key:</p>
-<figure class="highlight excel hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">"your GitHub regist email"</span><br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://s1.ax1x.com/2020/05/07/Yeowu9.jpg" alt></p>
+<h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a><span id="Repository">仓库</span></h4><p>集中存放镜像文件的地方。比如：DockerHub</p>
+<h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a><span id="Image">镜像</span></h4><p>一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。 镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。</p>
+<p>有基础镜像，仅仅包含操作系统，比如centos镜像；有中间件镜像，比如redis等数据库镜像；最后是应用镜像，就是指具体的应用服务了，应用镜像可以非常丰富，随时可以发布，这三者之间依次叠加。</p>
+<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a><span id="Container">容器</span></h4><p>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。</p>
+<p>容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。</p>
+<p>容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新 run ，数据却不会丢失。</p>
+<p>打个比方，你首先下载了一个Ubuntu的镜像，然后又安装mysql和Django应用及其依赖，来完成对它Ubutun镜像的修改，一个个人觉得非常完美应用镜像生成了！就把这个镜像分享给大家使用，大家通过这个镜像就生成一个容器。容器启动之后就会运行Django服务了。<br><img src="https://s1.ax1x.com/2020/05/07/YeTFv4.png" alt>](<a href="https://imgchr.com/i/YeTFv4" target="_blank" rel="noopener">https://imgchr.com/i/YeTFv4</a></p>
+<p>容器就是一个个独立的封闭的集装箱，但是也需要对外提供服务的，所以Docker允许公开容器的特定端口，在启动Docker的时候，我们就可以将容器的特定端口映射到宿主机上面的任意一个端口，所以，如果几个服务都需要80端口，那么容器的对外端口是80，但是映射到宿主机上面就是任意端口，就不会产生冲突，所以就不需要通过代理来解决冲突。容器对外端口与宿主机的端口映射可以通过下面的命令来完成。</p>
+<figure class="highlight applescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -d -p <span class="hljs-number">8081</span>:<span class="hljs-number">80</span> <span class="hljs-comment">--name 容器名 镜像名</span><br><br> -d 守护容器，就是后台运行，退出命令窗口容器也不会停止<br> -<span class="hljs-keyword">it</span> 交互式容器 退出命令窗口容器就停止运行了<br> -p 宿主机端口和容器端口映射<br></code></pre></td></tr></tbody></table></figure>
 
-<p>Press ‘Enter’ three times, no need password by default, find id_rsa.pub key in generated .ssh folder, copy the whole content in this file.</p>
-<p><a href="https://imgchr.com/i/QLmgOI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLmgOI.md.jpg" alt></a></p>
-<p>Go to github <a href="https://github.com/settings/keys" target="_blank" rel="noopener">setting keys page</a>, click New SSH Key</p>
-<p><a href="https://imgchr.com/i/QLmNO1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLmNO1.md.png" alt></a></p>
-<p>Title can be any value, copy the content of id_rsa.pub into Key, then click Add SSH Key.</p>
-<p>Go to git bash, use command <code>ssh git@github.com</code> to verify the key is successfully configured:</p>
-<p><a href="https://imgchr.com/i/QLn64U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLn64U.md.png" alt></a></p>
-<h3 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install Node.js</h3><p>Node.js <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Official Installer</a></p>
-<blockquote>
-<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>If you use the official installer, make sure Add to PATH is checked (it’s checked by default).</p>
-</blockquote>
-<blockquote>
-<h4 id="Mac-Linux"><a href="#Mac-Linux" class="headerlink" title="Mac / Linux"></a>Mac / Linux</h4><p>If you encounter EACCES permission error when trying to install Hexo, please follow the <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener">workaround</a> provided by npmjs; overriding with root/sudo is highly discouraged.</p>
-</blockquote>
-<p>Run CMD check node.js was installed successfully: <code>node -v</code></p>
-<p><img src="https://s2.ax1x.com/2019/12/19/QqKdbt.png" alt></p>
-<p>npm will be installed by default when installing node.js, if not, please install npm also.</p>
-<p>Run CMD check npm was installed successfully: <code>npm -v</code></p>
-<p><img src="https://s2.ax1x.com/2019/12/19/QqMFsA.png" alt></p>
-<h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a><span id="installHexo">Install Hexo</span></h3><p>Once all the requirements are installed, you can start to install Hexo.</p>
+<p><img src="https://s1.ax1x.com/2020/05/07/YeTM8O.png" alt></p>
+<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><span id="Dockerfile">Dockerfile</span></h4><p>一个文本文件，用来配置 image。</p>
+<figure class="highlight Docker hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Docker"><span class="hljs-comment"># Dockerfile</span><br><br><span class="hljs-keyword">FROM</span> ubuntu:<span class="hljs-number">16.04</span><br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update</span><br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y vim</span><br><br><span class="hljs-comment"># 告诉Docker默认启动命令</span><br><span class="hljs-keyword">CMD</span><span class="bash">[<span class="hljs-string">"sh"</span>]</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a><span id="DockerCompose">Docker Compose</span></h4><p>Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。</p>
+<p>docker-compose是编排容器的。例如，你有一个php镜像，一个mysql镜像，一个nginx镜像。如果没有docker-compose，那么每次启动的时候，你需要敲各个容器的启动参数，环境变量，容器命名，指定不同容器的链接参数等等一系列的操作，相当繁琐。而用了docker-composer之后，你就可以把这些命令一次性写在docker-composer.yml文件中，以后每次启动这一整个环境（含3个容器）的时候，你只要敲一个docker-composer up命令就ok了</p>
+<p>Compose 使用的三个步骤：</p>
 <ol>
-<li>Create a folder in your local PC, we will install Hexo frame in this folder and the blog pages will also be published in this folder.</li>
+<li>使用 Dockerfile 定义应用程序的环境。</li>
+<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
+<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
 </ol>
-<p><img src="https://s2.ax1x.com/2019/12/19/QqQPYT.png" alt></p>
-<ol start="2">
-<li><code>Shift + right click</code> in <==MyBlog==> folder. Open command window here.</li>
-</ol>
-<p><img src="https://s2.ax1x.com/2019/12/19/Qqa2fs.jpg" alt></p>
-<p>3.Use npm command to install Hexo:</p>
-<figure class="highlight avrasm hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="Init-Blog-Files"><a href="#Init-Blog-Files" class="headerlink" title="Init Blog Files"></a>Init Blog Files</h3><p>After the installation finished. Use following command in same <==MyBlog==> folder to init blog:</p>
-<figure class="highlight ebnf hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo init blog</span><br></code></pre></td></tr></tbody></table></figure>
-<p>Using following commands to verify the generated blog files</p>
-<figure class="highlight properties hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">hexo</span> <span class="hljs-string">new test_my_site</span><br><br><span class="hljs-attr">hexo</span> <span class="hljs-string">g</span><br><br><span class="hljs-attr">hexo</span> <span class="hljs-string">s</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://imgchr.com/i/QLPVzV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLPVzV.md.png" alt></a></p>
-<p>The blog will run on local server, we can preview it on browser <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
-<p><a href="https://imgchr.com/i/QLFFg0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLFFg0.md.png" alt></a></p>
-<h3 id="Create-Github-Repository"><a href="#Create-Github-Repository" class="headerlink" title="Create Github Repository"></a>Create Github Repository</h3><p>We need to create one Github Pages repository for deploying blog web files. Login github, create a new repository,</p>
-<p><a href="https://imgchr.com/i/QLESED" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLESED.md.png" alt></a></p>
-<p>The ==<username>== in repository name must be exactly same as highlighted your login name:</username></p>
-<p><a href="https://imgchr.com/i/QLEFgI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLEFgI.md.png" alt></a></p>
-<p>When the repository is created, go to repository settings:</p>
-<p><a href="https://imgchr.com/i/QLuzQJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLuzQJ.md.png" alt></a></p>
-<p>Scroll down the page, config source branch abd choose a theme:</p>
-<p><a href="https://imgchr.com/i/QLKnOA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/19/QLKnOA.md.png" alt></a></p>
-<p>By click the provided link, you can view your github pages in browser.</p>
-<h3 id="Deploy-blog-to-Github-Pages"><a href="#Deploy-blog-to-Github-Pages" class="headerlink" title="Deploy blog to Github Pages"></a>Deploy blog to Github Pages</h3><p>Open the <code>_config.yml</code> file under your blog root folder, update the deploy config as follow:</p>
-<figure class="highlight less hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-attribute">deploy</span>:<br>  <span class="hljs-attribute">type</span>: git<br>  <span class="hljs-attribute">repository</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/username/username.github.io.git</span><br>  <span class="hljs-attribute">branch</span>: master<br></code></pre></td></tr></tbody></table></figure>
-<p>Run CMD in this folder, using npm command to install deployment plugins:</p>
-<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>Then using following three hexo commands to deploy your blog on your github pages:</p>
-<figure class="highlight properties hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">hexo</span> <span class="hljs-string">clean </span><br><span class="hljs-attr">hexo</span> <span class="hljs-string">g </span><br><span class="hljs-attr">hexo</span> <span class="hljs-string">d</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>Finally, your can access your blog by url:</p>
-<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">username</span><span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><br></code></pre></td></tr></tbody></table></figure></body></html>
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>
-                </div>
-            </div>
+<figure class="highlight dts hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta"># yaml 配置实例</span><br><span class="hljs-symbol">version:</span> <span class="hljs-string">'3'</span><br><span class="hljs-symbol">services:</span><br><span class="hljs-symbol">  web:</span><br><span class="hljs-symbol">    build:</span> .<br><span class="hljs-symbol">    ports:</span><br>   - <span class="hljs-string">"5000:5000"</span><br><span class="hljs-symbol">    volumes:</span><br>   - .:/code<br>    - logvolume01:<span class="hljs-meta-keyword">/var/</span>log<br><span class="hljs-symbol">    links:</span><br>   - redis<br><span class="hljs-symbol">  redis:</span><br><span class="hljs-symbol">    image:</span> redis<br><span class="hljs-symbol">volumes:</span><br><span class="hljs-symbol">  logvolume01:</span> {}<br></code></pre></td></tr></tbody></table></figure></body></html>
         </div>
         
         
-        
-        <!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_telegram"></a>
-<a class="a2a_button_whatsapp"></a>
-<a class="a2a_button_reddit"></a>
-</div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-
         
     </div>
 </div>
@@ -291,45 +227,9 @@
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/03/Workaround%20for%20oracle%20weblogic%20install%20error/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Workaround for oracle weblogic install error —— Cyclic dependency detected among featureset libraries</span>
-            </a>
-        </div>
-        
-        
-    </div>
-</div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Nzk4OC8yNDQ4NQ==">
-    <script type="text/javascript">
-        (function(d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
-
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
-</div>
-
-    </div>
-</div>
 </div>
                 
 
@@ -442,74 +342,6 @@
 </div>
     
         
-
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    Catalogue
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#Brief">
-        <span class="has-mr-6">1</span>
-        <span>Brief</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#What-is-Hexo">
-        <span class="has-mr-6">1.1</span>
-        <span>What is Hexo</span>
-        </a></li><li>
-        <a class="is-flex" href="#What-is-Github-Pages">
-        <span class="has-mr-6">1.2</span>
-        <span>What is Github Pages</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Installation">
-        <span class="has-mr-6">2</span>
-        <span>Installation</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Requirements">
-        <span class="has-mr-6">2.1</span>
-        <span>Requirements</span>
-        </a></li><li>
-        <a class="is-flex" href="#Install-Git">
-        <span class="has-mr-6">2.2</span>
-        <span>Install Git</span>
-        </a></li><li>
-        <a class="is-flex" href="#Generate-SSH-Key-for-Github">
-        <span class="has-mr-6">2.3</span>
-        <span>Generate SSH Key for Github</span>
-        </a></li><li>
-        <a class="is-flex" href="#Install-Node-js">
-        <span class="has-mr-6">2.4</span>
-        <span>Install Node.js</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Windows">
-        <span class="has-mr-6">2.4.1</span>
-        <span>Windows</span>
-        </a></li><li>
-        <a class="is-flex" href="#Mac-Linux">
-        <span class="has-mr-6">2.4.2</span>
-        <span>Mac / Linux</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Install-Hexo">
-        <span class="has-mr-6">2.5</span>
-        <span>Install Hexo</span>
-        </a></li><li>
-        <a class="is-flex" href="#Init-Blog-Files">
-        <span class="has-mr-6">2.6</span>
-        <span>Init Blog Files</span>
-        </a></li><li>
-        <a class="is-flex" href="#Create-Github-Repository">
-        <span class="has-mr-6">2.7</span>
-        <span>Create Github Repository</span>
-        </a></li><li>
-        <a class="is-flex" href="#Deploy-blog-to-Github-Pages">
-        <span class="has-mr-6">2.8</span>
-        <span>Deploy blog to Github Pages</span>
-        </a></li></ul></li></ul>
-            </div>
-        </div>
-    </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -896,8 +728,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.svg" alt="Hexo + GitPages Blog Tutorial(教程)" height="28" />
-                    <img class="logo-img-dark" src="/images/logo.svg" alt="Hexo + GitPages Blog Tutorial(教程)" height="28" />
+                    <img class="logo-img" src="/images/logo.svg" alt="Jack Shang&#39;s Blog" height="28" />
+                    <img class="logo-img-dark" src="/images/logo.svg" alt="Jack Shang&#39;s Blog" height="28" />
                 
                 </a>
                 <p class="is-size-7">
