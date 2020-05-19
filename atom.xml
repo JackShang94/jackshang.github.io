@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-07T14:35:19.773Z</updated>
+  <updated>2020-05-19T13:46:25.367Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cheat Sheet</title>
+    <link href="http://yoursite.com/2020/05/19/CheatSheet/"/>
+    <id>http://yoursite.com/2020/05/19/CheatSheet/</id>
+    <published>2020-05-19T13:34:31.000Z</published>
+    <updated>2020-05-19T13:46:25.367Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="在文件中查找字符串"><a href="#在文件中查找字符串" class="headerlink" title="在文件中查找字符串"></a>在文件中查找字符串</h1><h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs markdown">C:\Users\&gt;find /?<br>在文件中搜索字符串。<br><br>FIND [<span class="hljs-string">/V</span>] [<span class="hljs-string">/C</span>] [<span class="hljs-string">/N</span>] [<span class="hljs-string">/I</span>] [<span class="hljs-string">/OFF[LINE</span>]] "string" [<span class="hljs-string">[drive:</span>][<span class="hljs-symbol">path</span>]filename[ ...]]<br><br>  /V         显示所有未包含指定字符串的行。<br>  /C         仅显示包含字符串的行数。<br>  /N         显示行号。<br>  /I         搜索字符串时忽略大小写。<br>  /OFF[LINE] 不要跳过具有脱机属性集的文件。<br>  "string" 指定要搜索的文本字符串。<br>  [<span class="hljs-string">drive:</span>][<span class="hljs-symbol">path</span>]filename 指定要搜索的文件。<br><br> /?          在命令提示符显示帮助。<br></code></pre></td></tr></table></figure><p>例如：<br>要从Pencil.ad 显示包含字符串“Pencil Sharpener”的所有行，请键入：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">find</span> <span class="hljs-string">"Pencil Sharpener"</span> pencil.ad<br></code></pre></td></tr></table></figure><p>在D盘根目录下的文本文件test.txt中查找含有 abcd这一字符串的所有行。</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">find</span> <span class="hljs-string">"abcd"</span> d:\test.txt<br></code></pre></td></tr></table></figure><h2 id="findstr"><a href="#findstr" class="headerlink" title="findstr"></a>findstr</h2><p>假设您想要找到当前目录和所有子目录中每个包含“computer”这个单词的文件，而不考虑字母的大小写。要列出包含单词“computer”的所有文件，请键入</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">findstr <span class="hljs-string">/s</span> <span class="hljs-string">/i</span> <span class="hljs-string">/m</span> <span class="hljs-string">"\&lt;computer\&gt;"</span> *.*<br></code></pre></td></tr></table></figure><p>当你不知道在哪一个具体的文件中搜索指定字符串的时候，一般命令的格式是这样的：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">findstr <span class="hljs-string">/s</span> <span class="hljs-string">/i</span> <span class="hljs-string">/n</span>  <span class="hljs-string">"abc"</span>  *.*<br></code></pre></td></tr></table></figure><p>意思就是（/s）–&gt;在当前目录及其子目录中的 (<em>.</em>) —&gt;所有格式文件 中搜索含有字符串abc的行 (/i)–&gt;搜索忽略字符串中字母的大小写 (/n)–&gt;并显示改行的行号。</p><h1 id="Remote-Debugging-with-Eclipse-WebSphere-7"><a href="#Remote-Debugging-with-Eclipse-WebSphere-7" class="headerlink" title="Remote Debugging with Eclipse + WebSphere 7"></a>Remote Debugging with Eclipse + WebSphere 7</h1><p><a href="https://mkyong.com/websphere/remote-debugging-with-eclipse-websphere-7/" target="_blank" rel="noopener">https://mkyong.com/websphere/remote-debugging-with-eclipse-websphere-7/</a></p><h1 id="破解工作表加密"><a href="#破解工作表加密" class="headerlink" title="破解工作表加密"></a>破解工作表加密</h1><p><a href="https://zhuanlan.zhihu.com/p/26440785" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26440785</a></p><h1 id="Json-Formatter"><a href="#Json-Formatter" class="headerlink" title="Json Formatter"></a>Json Formatter</h1><p><a href="https://jsonformatter.org/" target="_blank" rel="noopener">https://jsonformatter.org/</a></p><h1 id="MacOS-软件下载"><a href="#MacOS-软件下载" class="headerlink" title="MacOS 软件下载"></a>MacOS 软件下载</h1><p><a href="https://xclient.info/" target="_blank" rel="noopener">https://xclient.info/</a></p><h1 id="重启Win10电脑打印机服务"><a href="#重启Win10电脑打印机服务" class="headerlink" title="重启Win10电脑打印机服务"></a>重启Win10电脑打印机服务</h1><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dos"><span class="hljs-built_in">net</span> stop spooler<br><br><span class="hljs-built_in">net</span> <span class="hljs-built_in">start</span> spooler<br></code></pre></td></tr></table></figure><h1 id="海量电脑桌面-可选分辨率"><a href="#海量电脑桌面-可选分辨率" class="headerlink" title="海量电脑桌面(可选分辨率)"></a>海量电脑桌面(可选分辨率)</h1><p><a href="https://alphacoders.com/" target="_blank" rel="noopener">https://alphacoders.com/</a></p><p><a href="https://www.wallpaperflare.com/" target="_blank" rel="noopener">https://www.wallpaperflare.com/</a></p><h1 id="无水印高清图"><a href="#无水印高清图" class="headerlink" title="无水印高清图"></a>无水印高清图</h1><p><a href="https://unsplash.com/t/textures-patterns" target="_blank" rel="noopener">https://unsplash.com/t/textures-patterns</a></p><h1 id="好用API合集网站"><a href="#好用API合集网站" class="headerlink" title="好用API合集网站"></a>好用API合集网站</h1><p><a href="https://api.btstu.cn/" target="_blank" rel="noopener">https://api.btstu.cn/</a></p><h1 id="API随机图片"><a href="#API随机图片" class="headerlink" title="API随机图片"></a>API随机图片</h1><p><a href="https://source.unsplash.com/" target="_blank" rel="noopener">https://source.unsplash.com/</a></p><h1 id="通过链接下载视频"><a href="#通过链接下载视频" class="headerlink" title="通过链接下载视频"></a>通过链接下载视频</h1><p><a href="https://www.urlgot.com/" target="_blank" rel="noopener">https://www.urlgot.com/</a></p><h1 id="eclipse解决egit-lock-fail-fetch时"><a href="#eclipse解决egit-lock-fail-fetch时" class="headerlink" title="eclipse解决egit lock fail(fetch时)"></a>eclipse解决egit lock fail(fetch时)</h1><p><a href="https://stackoverflow.com/questions/49859734/egit-lock-fail-eclipse/51058122" target="_blank" rel="noopener">https://stackoverflow.com/questions/49859734/egit-lock-fail-eclipse/51058122</a></p><h1 id="微信朋友圈生成器"><a href="#微信朋友圈生成器" class="headerlink" title="微信朋友圈生成器"></a>微信朋友圈生成器</h1><p><a href="https://www.chatfaker.com/zh-cn/index.html#home" target="_blank" rel="noopener">https://www.chatfaker.com/zh-cn/index.html#home</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;在文件中查找字符串&quot;&gt;&lt;a href=&quot;#在文件中查找字符串&quot; class=&quot;headerlink&quot; title=&quot;在文件中查找字符串&quot;&gt;&lt;/a&gt;在文件中查找字符串&lt;/h1&gt;&lt;h2 id=&quot;find&quot;&gt;&lt;a href=&quot;#find&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="Cheat" scheme="http://yoursite.com/categories/Cheat/"/>
+    
+    
+      <category term="Cheat" scheme="http://yoursite.com/tags/Cheat/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker与持续集成</title>
