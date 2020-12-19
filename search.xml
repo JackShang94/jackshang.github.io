@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python 递归返回 None，为嘛呢?</title>
+      <link href="/2020/12/19/Python%20%E9%80%92%E5%BD%92%E8%BF%94%E5%9B%9E%20None%EF%BC%8C%E4%B8%BA%E5%98%9B%E5%91%A2/"/>
+      <url>/2020/12/19/Python%20%E9%80%92%E5%BD%92%E8%BF%94%E5%9B%9E%20None%EF%BC%8C%E4%B8%BA%E5%98%9B%E5%91%A2/</url>
+      
+        <content type="html"><![CDATA[<p>首先，我来写一个简化的递归函数，来做用于解释的案例。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ex</span><span class="hljs-params">(x)</span>:</span><br>    <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span>:<br>        x -= <span class="hljs-number">1</span><br>        ex(x)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> x<br><br>t = ex(<span class="hljs-number">5</span>)<br>print(t)<br></code></pre></td></tr></table></figure><p>上面的程序逻辑超简单：判断输入的书是否大于 1 ，如果大于 1 则把它减 1 ，然后再判断。如此不断递归下去。当 x 不大于 1 的时候，返回 x 的大小。</p><p>很容易认为返回的 x 打印出来的结果是 1 是不？但是不是的。你可以把上面的代码运行下，打印出来的结果是：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">None</span><br></code></pre></td></tr></table></figure><p>为什么是这样的呢？我的理解是：</p><p>当我们在 t = ex(5) 的时候，调用了一次函数。如果函数直接返回 t = 1，那是木有问题的。问题是，程序在这里返回数据。反而又去调用了一次函数本身。这次调用的的是 ex(4) 然后一直调用的 ex(1) 这时候程序终于运行到了 return 这里。那这次 return 给了谁呢？答案是谁都没有给。因为我们没有设置 t = ex(1)， 所以函数的 return 回的数据就这么丢失了。</p><p>而我们调用的 t = ex(5) 呢，因为它的 if &gt; 1 是成立的，所以直接跳过了了 else: return x ，等于这一次调用，是没有用到 return 的。而在 Python 中规定，如果一个函数体没有 return 的时候，那它的 return 就是 None 。这也就是为什么，我们运行上面的程序的时候，得到的结果是 None 。</p><p>为了证明这点，我们可以去写一个程序，去尝试获得递归到 ex(1) 这次调用时 ex(1) 所返回的值。程序如下：</p><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs gml">t = &#123;&#125;<br><br>def ex(<span class="hljs-symbol">x</span>):<br>    <span class="hljs-literal">global</span> t<br>    <span class="hljs-keyword">if</span> <span class="hljs-symbol">x</span> &gt; <span class="hljs-number">1</span>:<br>        <span class="hljs-symbol">x</span> -= <span class="hljs-number">1</span><br>        t[<span class="hljs-symbol">x</span>] = ex(<span class="hljs-symbol">x</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-symbol">x</span><br><br>ex(<span class="hljs-number">10</span>)<br>print(t)<br></code></pre></td></tr></table></figure><p>在程序中，我们用字典，把 ex(x) 每次调用所返回的数据记录了下来。结果如下：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&#123;<span class="hljs-number">1</span>: <span class="hljs-number">1</span>, <span class="hljs-number">2</span>: None, <span class="hljs-number">3</span>: None, <span class="hljs-number">4</span>: None, <span class="hljs-number">5</span>: None, <span class="hljs-number">6</span>: None, <span class="hljs-number">7</span>: None, <span class="hljs-number">8</span>: None, <span class="hljs-number">9</span>: None&#125;<br></code></pre></td></tr></table></figure><p>可见：</p><p>在递归中，后调用的函数先返回。<br>除了最后一次调用的函数有了正确的返回外，之前的函数都没有 return ，所以返回的都是 None。</p><p>那如何正确地返回递归出来的数据呢？答案是：一层一层第把最后一次调用返回出来。代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ex</span><span class="hljs-params">(x)</span>:</span><br>    <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span>:<br>        x -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> ex(x)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> x<br><br>t = ex(<span class="hljs-number">5</span>)<br>print(t)<br></code></pre></td></tr></table></figure><p>结果为：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>为什么这次能正确呢？因为第一次调用 ex(x) 的时候，它返回的是ex(x-1)，下一次调用返回了 ex(x-2) 一路携手交传，最终把 ex(1) return 给了 t ，这个时候就等于 t = ex(1) 了，自然就得到了正确的结果了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组和链表(2)</title>
       <link href="/2020/10/27/%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8(2)/"/>
       <url>/2020/10/27/%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8(2)/</url>
