@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Jack Shang&#39;s Zone</title>
+  <title>Shang Liang Liang&#39;s Blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Jack Shang</name>
+    <name>Shang Liang Liang</name>
     
   </author>
   
